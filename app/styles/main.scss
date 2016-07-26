@@ -49,7 +49,7 @@ body {
 }
 
 .hello {
-	width: 80%;
+	width: 90%;
 	height: 300px;
 	// background-color: #e5e5e5;
   text-align: center;
@@ -86,24 +86,30 @@ li.ng-enter.ng-enter-active {
     li {
       margin-bottom: 20px;
 
+      .col {
+        color: white;
+        padding-left: 40px;
+        padding-right: 40px;
+        border-radius: 10px;
+      }
       .col.B {
-
+        background: #00e842;
       }
 
       .col.I {
-
+        background: #009eff;
       }
 
       .col.N {
-
+        background: #dbd900;
       }
 
       .col.G {
-
+        background: #e88800;
       }
 
       .col.O {
-
+        background: #ff0200;
       }
 
       &.h1 {

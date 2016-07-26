@@ -4,7 +4,11 @@
 <button class="button" ng-click="main.reset()">Reset Game</button>
   <ul>
     <li class="{{ main.index($index) }}" ng-repeat="c in main.storage.calls">
-    <span class="col" ng-class="c.col">{{ c.col }}</span><span class="val">{{ c.value }}</span>
+    <!-- <span class="col" ng-class="c.col">{{ c.col }}</span><span class="val">{{ c.value }}</span> -->
+    <span class="col" ng-class="c.col">{{ c.col }}</span>
+    <span class="val" ng-if="$index <= 0">{{ c.quiz }}</span>
+    <span class="val" ng-if="$index > 0">{{ c.value }}</span>
+
   </li>
   </ul>
 

@@ -48,6 +48,32 @@ angular.module('kdBingoApp')
       }
     }
 
+    function generateQuiz(item, level) {
+      if (level < 10) {
+        return item.value;
+      } else if (level < 20) {
+        var operator = random(10);
+        return (item.value - operator) + " + " + operator + " = ?";
+      } else if (level < 30) {
+        var operator1 = random(5);
+        var operator2 = random(5);
+        return (item.value - operator1 + operator2) + " + " + operator1 + " - " + operator2 + " = ?";
+      } else {
+        var operator1 = random(5);
+        var operator2 = random(5);
+        var operator3 = random(5);
+        return (item.value - operator1 + operator2 - operator3) +
+        " + " + operator1 +
+        " - " + operator2 +
+        " + " + operator3 +
+        " = ?";
+      }
+    }
+
+    function random(limit) {
+      return Math.floor(Math.random() * 100) % limit + 1;
+    }
+
     function init() {
 
       self.storage.deck = self.storage.deck || [];
@@ -60,6 +86,10 @@ angular.module('kdBingoApp')
         }
 
         self.storage.deck = _.shuffle(self.storage.deck);
+
+        for (var i = 0; i < self.storage.deck.length; i++) {
+          self.storage.deck[i].quiz = generateQuiz(self.storage.deck[i], i);
+        }
       }
     }
   });
